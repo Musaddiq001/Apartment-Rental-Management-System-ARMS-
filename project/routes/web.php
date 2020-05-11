@@ -45,8 +45,8 @@ Route::group(['middleware'=>['sess']], function(){
 	
 		Route::get('/admin/add', 'AdminController@add')->name('admin.add');
 		Route::post('/admin/add', 'AdminController@insert');
-		Route::get('/admin/edit/{id}', ['as'=>'admin.edit','uses'=>'AdminController@edit']);
-		Route::post('/admin/edit/{id}', 'AdminController@update');
+		Route::get('/admin/edit', ['as'=>'admin.edit','uses'=>'AdminController@edit']);
+		Route::post('/admin/edit', 'AdminController@update')->name('admin.update');
 		Route::get('/admin/edit1/{id}', ['as'=>'admin.edit1','uses'=>'AdminController@edit1']);
 		Route::post('/admin/edit1/{id}', 'AdminController@update1');
 		Route::get('/admin/delete/{id}', 'AdminController@delete')->name('admin.delete');

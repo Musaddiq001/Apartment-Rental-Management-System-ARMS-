@@ -23,7 +23,7 @@ class LoginController extends Controller
                     ->where('password', $req->password)
                     ->first();*/
 
-        $user = DB::table('users')
+        $user = DB::table('admininfo')
                     ->where('username', $req->uname)
                     ->where('password', $req->password)
                     ->first();

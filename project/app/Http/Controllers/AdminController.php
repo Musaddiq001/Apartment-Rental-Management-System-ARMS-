@@ -73,12 +73,17 @@ class adminController extends Controller
 
 		
 	}
+    public function edit(Request $request)
+    {
+        $user = DB::table('admininfo')->where('username', $request->session()->get('uname'))->first();
+            return view('admin.edit', ['user'=>$user]);
+    }
 
-	public function edit($id){
+/*	public function edit($id){
 	
 		$user = User::find($id);
 		return view('admin.edit', $user);
-	}
+	}*/
 	public function edit1($id){
 
 		$user = Buscounters::find($id);
@@ -91,27 +96,64 @@ class adminController extends Controller
 		return view('admin.edit2', $user);
 	}*/
 
-	public function update($id, Request $req){
+	public function update( Request $request){
 		
-		$validation = $this->validate($req, [
+		/*$validation = $this->validate($req, [
 			'username'=>'bail|required|unique:users',
 			'email'=>'required|min:5',
 		])->validate();
 
 		$validation->validate();
-		
-		$user = User::find($id);
-		$user->username = $req->username;
-		$user->email = $req->uname;
-		$user->password = $req->password;
-		$user->type 	= $req->type;
 
+		$user = User::all();
+		$user->fname = $req->fname;
+		$user->lname = $req->lname;
+		$user->username = $req->username;
+		$user->email = $req->email;
+		$user->phone = $req->phone;
+		$user->address = $req->address;
+		$user->nid = $req->nid;
+		$user->password = $req->password;
+		$user->cpassword = $req->cpassword;
 		if($user->save()){
-			return redirect()->route('admin.list1');
+			return redirect()->route('admin.index');
 		}else{
 			return redirect()->route('admin.edit', $id);
-		}
+		}*/
+		$validation = Validator::make($request->all(), [
+            'fname'=>'required',
+            'lname'=>'required',
+            'phone'=>'required|size:11',
+            'nid'=>'required|size:5',
+            'address'=>'required',
+            'email'=>'required|email',
+            'password'=>'required',
+            'cpassword'=>'same:password'
+		]);
+		if($validation->fails()){
+			return back()
+					->with('errors', $validation->errors())
+					->withInput();
+			return redirect()->route('add.bus')
+							->with('errors', $validation->errors())
+							->withInput();		
+        }
+       $affected= DB::table('admininfo')
+              ->where('username', $request->username)
+              ->update(array('fname' => $request->fname,
+                       'lname' => $request->lname, 
+                       'password' => $request->password,
+                       'email' => $request->email,      
+                       'phone' => $request->phone,
+                       'address' => $request->address,
+                       'nid' => $request->nid));
+            return redirect()->route('admin.index');               
+
+    
 	}
+	
+
+	
 	public function update1($id, Request $req){
 		
 		$user = Buscounters::find($id);
