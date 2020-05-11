@@ -27,8 +27,6 @@ Route::post('/login', 'LoginController@verify');
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/manager', 'ManagerController@index')->name('manager.managerindex');
 
-
-
 Route::get('/login/passrecover', 'LoginController@passrecover')->name('login.passrecover');
 Route::post('/login/passrecover', 'LoginController@passrecovered');
 	
@@ -40,6 +38,10 @@ Route::get('/logout', 'LogoutController@index')->name('logout');;
 
 Route::group(['middleware'=>['sess']], function(){
 	Route::get('/admin', 'AdminController@index')->name('admin.index');
+	
+	/*Route::get('/admin/assignmanager', 'AdminController@assign')->name('admin.assign');
+    Route::post('/admin/assignmanager', 'AdminController@assigned');*/
+	
 	Route::get('/admin/view_managers', 'AdminController@list')->name('admin.list');
 	Route::get('/admin/view_customers', 'AdminController@list1')->name('admin.list1');
 	Route::get('/admin/view_houseowners', 'AdminController@list2')->name('admin.list2');
@@ -50,8 +52,13 @@ Route::group(['middleware'=>['sess']], function(){
 	
 		Route::get('/admin/add', 'AdminController@add')->name('admin.add');
 		Route::post('/admin/add', 'AdminController@insert');
+		
 		Route::get('/admin/edit', ['as'=>'admin.edit','uses'=>'AdminController@edit']);
 		Route::post('/admin/edit', 'AdminController@update')->name('admin.update');
+		
+		Route::get('/admin/assign/{id}', 'AdminController@assign')->name('admin.assign');
+		Route::post('/admin/assign/{id}', 'AdminController@assigned')->name('admin.assigned');
+		
 		Route::get('/admin/edit1/{id}', ['as'=>'admin.edit1','uses'=>'AdminController@edit1']);
 		Route::post('/admin/edit1/{id}', 'AdminController@update1');
 		Route::get('/admin/delete/{id}', 'AdminController@delete')->name('admin.delete');

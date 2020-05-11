@@ -36,6 +36,7 @@ class adminController extends Controller
 		return view('admin.add');
 	}
 
+
 	public function insert(Request $req){
 		
 		$req->validate([
@@ -79,47 +80,37 @@ class adminController extends Controller
             return view('admin.edit', ['user'=>$user]);
     }
 
-/*	public function edit($id){
+	public function assign($id){
 	
-		$user = User::find($id);
-		return view('admin.edit', $user);
-	}*/
+		$user = manager::find($id);
+		return view('admin.assign', $user);
+	}
+	public function assigned ($id, Request $req){
+		
+		$user = manager::find($id);
+		$user->division = $req->division;
+		$user->area = $req->area;
+
+
+		if($user->save()){
+			return redirect()->route('admin.list');
+		}else{
+			return redirect()->route('admin.assign', $username);
+		}
+	}
+	
+		
 	public function edit1($id){
 
 		$user = Buscounters::find($id);
 		return view('admin.edit1', $user);
 	}
 	
-/*	public function edit2($id){
 
-		$user = Buscounters::find($id);
-		return view('admin.edit2', $user);
-	}*/
+
 
 	public function update( Request $request){
 		
-		/*$validation = $this->validate($req, [
-			'username'=>'bail|required|unique:users',
-			'email'=>'required|min:5',
-		])->validate();
-
-		$validation->validate();
-
-		$user = User::all();
-		$user->fname = $req->fname;
-		$user->lname = $req->lname;
-		$user->username = $req->username;
-		$user->email = $req->email;
-		$user->phone = $req->phone;
-		$user->address = $req->address;
-		$user->nid = $req->nid;
-		$user->password = $req->password;
-		$user->cpassword = $req->cpassword;
-		if($user->save()){
-			return redirect()->route('admin.index');
-		}else{
-			return redirect()->route('admin.edit', $id);
-		}*/
 		$validation = Validator::make($request->all(), [
             'fname'=>'required',
             'lname'=>'required',
