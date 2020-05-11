@@ -152,8 +152,8 @@ class adminController extends Controller
 
 	public function list(){
 
-		$users = User::all();
-		return view('admin.view_users', ['users'=>$users]);
+		$users = manager::all();
+		return view('admin.view_managers', ['managers'=>$users]);
 	}
 	
 	public function list1(){	

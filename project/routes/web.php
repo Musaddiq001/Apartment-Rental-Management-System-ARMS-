@@ -35,7 +35,7 @@ Route::get('/logout', 'LogoutController@index')->name('logout');;
 
 Route::group(['middleware'=>['sess']], function(){
 	Route::get('/admin', 'AdminController@index')->name('admin.index');
-	Route::get('/admin/view_users', 'AdminController@list')->name('admin.list');
+	Route::get('/admin/view_managers', 'AdminController@list')->name('admin.list');
 	Route::get('/admin/view_staffs', 'AdminController@list1')->name('admin.list1');
 	Route::get('/admin/view_buscounters', 'AdminController@list2')->name('admin.list2');
 	Route::get('/admin/view_buses', 'AdminController@list3')->name('admin.list3');
