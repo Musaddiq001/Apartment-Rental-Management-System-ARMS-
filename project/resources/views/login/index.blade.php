@@ -4,7 +4,7 @@
 	<title>Login Page</title>
 </head>
 <body>
-	<h1>Welcome to Bus ticket Reseravation system</h1>
+	<h1>Welcome to Apartment Rental Management System!</h1>
 	<h2>Sign in</h2>
 	<form method="post" >
 		@csrf

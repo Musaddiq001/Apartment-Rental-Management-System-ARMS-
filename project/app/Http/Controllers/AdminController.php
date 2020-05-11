@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\manager;
 use App\Http\Requests\adminRequest;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -34,21 +35,31 @@ class adminController extends Controller
 	public function insert(Request $req){
 		
 		$req->validate([
-			'operator'=>'bail|required|min:5|unique:users',
-			'manager'=>'required',
-			'name'=>'required',
-			'location'=>'required',
-			'seatRow'=>'required',
-			'seatColumn'=>'required'
+			'fname'=>'bail|required|min:5|unique:managers',
+			'lname'=>'required',
+			'uname'=>'required',
+			'password'=>'required',
+			'email'=>'required',
+			'phone'=>'required',
+			'type'=>'required',
+			'address'=>'required',
+			'nid'=>'required',
+			'division'=>'required',
+     		'area'=>'required'
 		]);
 
-		$user 			= new Buses;
-		$user->operator = $req->operator;
-		$user->manager 	= $req->manager;
-		$user->name 	= $req->name;
-		$user->location 	= $req->location ;
-        $user->seatRow 	= $req->seatRow;
-		$user->seatColumn 	= $req->seatColumn;
+		$user 			= new manager;
+		$user->fname = $req->fname;
+		$user->lname 	= $req->lname;
+		$user->username 	= $req->uname;
+		$user->password 	= $req->password ;
+        $user->email 	= $req->email;
+		$user->phone 	= $req->phone;
+		$user->type 	= $req->type;
+		$user->address 	= $req->address;
+		$user->nid 	= $req->nid ;
+        $user->division 	= $req->division;
+		$user->area 	= $req->area;
 
 		if($user->save()){
 			return redirect()->route('admin.index');
