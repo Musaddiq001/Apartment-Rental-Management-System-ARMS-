@@ -8,8 +8,15 @@
 	<h1>Customers List!</h1>&nbsp
 	<a href="{{route('admin.index')}}">back</a> |
 	<a href="{{route('logout')}}">Logout</a> 
+<form method="get" action="{{ route('search') }}">
+	@csrf
+		Search Customers by Username: 
 
-	<table border="1">
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Username" title="Type Operator Name">
+
+		</form>
+
+		<table id="myTable" border="1">
 		<tr>
 			<th>First Name</th>
 			<th>Last Name</th>
@@ -40,6 +47,26 @@
 		</tr>
 		@endforeach
 	</table>
+	<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 </body>
 </html>
