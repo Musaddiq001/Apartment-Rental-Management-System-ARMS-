@@ -11,7 +11,7 @@
 	<a href="{{route('admin.list1')}}"> Customers</a> |
 	<a href="{{route('admin.list2')}}"> House Owners</a> <br> <br>
 	<a href="{{route('admin.list3')}}"> Available Houses</a> |
-	<a href="{{route('admin.list3')}}"> Rented Houses</a> <br> <br>
+	<a href="{{route('admin.list4')}}"> Rented Houses</a> <br> <br>
 	<a href="{{route('admin.add')}}"> Create New Manager Account</a> |
 	<a href="{{route('admin.list2')}}"> Assign/Change Manager</a> <br><br>
 	

@@ -8,6 +8,7 @@ use App\manager;
 use App\customer;
 use App\houseProvider;
 use App\houseinfo;
+use App\rented;
 use App\Http\Requests\adminRequest;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -174,6 +175,10 @@ class adminController extends Controller
 	public function list3(){
 		$users = houseinfo::all();
 		return view('admin.view_houses', ['houseinfos'=>$users]);
+	}
+	public function list4(){
+		$users = rented::all();
+		return view('admin.view_rented', ['rentedhouseinfo'=>$users]);
 	}
 	public function searchBus(Request $request)
 	{
