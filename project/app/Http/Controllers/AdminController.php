@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\manager;
 use App\customer;
+use App\houseProvider;
 use App\Http\Requests\adminRequest;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -165,9 +166,9 @@ class adminController extends Controller
 	
 	public function list2(){
 		
-		$users = Buscounters::all();
+		$users = houseProvider::all();
 							
-		return view('admin.view_buscounters', ['buscounters'=>$users]);
+		return view('admin.view_houseowners', ['houseowners'=>$users]);
 	}
 	public function list3(){
 		$users = Buses::all();
