@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\manager;
+use App\customer;
 use App\Http\Requests\adminRequest;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -157,9 +158,9 @@ class adminController extends Controller
 	}
 	
 	public function list1(){	
-		$users = User::all();	
+		$users = customer::all();	
 	
-		return view('admin.view_staffs', ['users'=>$users]);
+		return view('admin.view_customers', ['customers'=>$users]);
 	}
 	
 	public function list2(){
