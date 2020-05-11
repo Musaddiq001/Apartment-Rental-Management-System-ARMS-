@@ -21,11 +21,16 @@ Route::get('/admin', function(){
 	return view('admin.index');
 });
 
-Route::get('/login', 'LoginController@index');
+Route::get('/login', 'LoginController@index')->name('login.index');
 Route::post('/login', 'LoginController@verify');
 
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/manager', 'ManagerController@index')->name('manager.managerindex');
+
+
+
+Route::get('/login/passrecover', 'LoginController@passrecover')->name('login.passrecover');
+Route::post('/login/passrecover', 'LoginController@passrecovered');
 	
 	
 Route::get('/signup', 'SignupController@index')->name('signup.index');

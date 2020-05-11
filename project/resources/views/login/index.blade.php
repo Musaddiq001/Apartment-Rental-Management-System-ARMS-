@@ -20,11 +20,14 @@
 				
 				</select> <br>
         
-		Email:  <input type="text" name="uname" > <br>
+		Username:  <input type="text" name="uname" > <br>
 		Password: <input type="password" name="password" ><br>
 		<input type="submit" name="submit" value="login" ><br> <br>
 		
-		<a href="{{route('signup.index')}}">Do not have an account? Please Sign up!</a> | 
+		<a href="{{route('login.passrecover')}}">Forgot password?</a> | 
+		
+		
+		<a href="{{route('signup.index')}}">Do not have an account? Please Sign up!</a> 
 	</form>
 
 	<h3>{{session('msg')}}</h3>
