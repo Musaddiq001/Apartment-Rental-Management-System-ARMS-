@@ -42,7 +42,8 @@
 			<td>{{$user['nid']}}</td>
 			<td>{{$user['status']}}</td>
 			<td>
-				<a href="{{route('admin.delete', $user['username'])}}">Delete</a> 
+				<a href="{{route('admin.delete1', $user['userId'])}}">Delete Customer</a> |
+				
 			</td>
 		</tr>
 		@endforeach

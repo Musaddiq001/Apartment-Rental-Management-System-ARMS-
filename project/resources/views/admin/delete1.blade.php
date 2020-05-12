@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Counter Details page</title>
+	<title>Home page</title>
 </head>
 <body>	
 
-	<h1>Counter Details</h1>&nbsp
-	<a href="/logout">Logout</a> <br>
+	<h1>Customer Details</h1>&nbsp
+	<a href="{{route('logout')}}">Logout</a> <br>
 
 		<table>
 			<tr>
@@ -14,21 +14,21 @@
 				<td>{{$userId}}</td>
 			</tr>
 			<tr>
-				<td>OPERATOR</td>
-				<td>{{$operator}}</td>
+				<td>Username</td>
+				<td>{{$username}}</td>
 			</tr>
 			<tr>
-				<td>MANAGER</td>
-				<td>{{$manager}}</td>
+				<td>Email</td>
+				<td>{{$email}}</td>
 			</tr>
 			
 			<tr>
-				<td>NAME</td>
-				<td>{{$name}}</td>
+				<td>Password</td>
+				<td>{{$password}}</td>
 			</tr>
 			<tr>
-				<td>LOCATION</td>
-				<td>{{$location}}</td>
+				<td>Type</td>
+				<td>{{$type}}</td>
 			</tr>
 		</table>
 		

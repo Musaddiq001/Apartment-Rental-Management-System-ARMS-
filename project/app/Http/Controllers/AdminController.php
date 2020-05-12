@@ -166,7 +166,7 @@ class adminController extends Controller
 	}
 
     public function delete1($id){
-		$user = Buscounters::find($id);
+		$user = customer::find($id);
 		return view('admin.delete1', $user);
 	}	
 	
@@ -180,8 +180,8 @@ class adminController extends Controller
 	}
 	
 	public function destroy1($id, Request $req){
-		if(Buscounters::destroy($req->userId)){
-			return redirect()->route('admin.list2');
+		if(customer::destroy($req->userId)){
+			return redirect()->route('admin.list1');
 		}else{
 			return redirect()->route('admin.delete1', $id);
 		}
