@@ -5,8 +5,8 @@
 </head>
 <body>	
 
-	<h1>User Details</h1>&nbsp
-	<a href="/logout">Logout</a> <br>
+	<h1>Manager Details</h1>&nbsp
+	<a href="{{route('logout')}}">Logout</a> <br>
 
 		<table>
 			<tr>

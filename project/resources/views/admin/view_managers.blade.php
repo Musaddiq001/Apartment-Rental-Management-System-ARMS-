@@ -44,7 +44,8 @@
 			<td>{{$user['division']}}</td>
 			<td>{{$user['area']}}</td>
 			<td>
-				<a href="{{route('admin.assign', $user['userId'])}}">Assign/Change Area</a> 
+				<a href="{{route('admin.assign', $user['userId'])}}">Assign/Change Area</a> |
+				<a href="{{route('admin.delete', $user['userId'])}}">Delete Account</a> |
 			</td>
 		</tr>
 		@endforeach

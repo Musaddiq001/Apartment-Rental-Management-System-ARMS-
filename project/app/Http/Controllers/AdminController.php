@@ -161,7 +161,7 @@ class adminController extends Controller
 	}
 
 	public function delete($id){
-		$user = User::find($id);
+		$user = manager::find($id);
 		return view('admin.delete', $user);
 	}
 
@@ -172,7 +172,7 @@ class adminController extends Controller
 	
 
 	public function destroy($id, Request $req){
-		if(User::destroy($req->userId)){
+		if(manager::destroy($req->userId)){
 			return redirect()->route('admin.list');
 		}else{
 			return redirect()->route('admin.delete', $id);
