@@ -168,6 +168,11 @@ class adminController extends Controller
     public function delete1($id){
 		$user = customer::find($id);
 		return view('admin.delete1', $user);
+	}
+
+    public function delete2($id){
+		$user = houseProvider::find($id);
+		return view('admin.delete2', $user);
 	}	
 	
 
@@ -184,6 +189,13 @@ class adminController extends Controller
 			return redirect()->route('admin.list1');
 		}else{
 			return redirect()->route('admin.delete1', $id);
+		}
+	}
+	public function destroy2($id, Request $req){
+		if(houseProvider::destroy($req->userId)){
+			return redirect()->route('admin.list2');
+		}else{
+			return redirect()->route('admin.delete2', $id);
 		}
 	}
 
@@ -213,25 +225,5 @@ class adminController extends Controller
 		$users = rented::all();
 		return view('admin.view_rented', ['rentedhouseinfo'=>$users]);
 	}
-	public function searchBus(Request $request)
-	{
-		
-		
-        $buses = DB::table('buses');
-        if( $request->input('search')){
-            $buses = $buses->where('name', 'LIKE',  $request->search . "%");
-        }
-        $buses = $buses->paginate(10);
-        
-    	return view('admin.view_buses', compact('buses'));
-    }
 
-	public function searchCounter(Request $request)
-	{
-        $buscounters = DB::table('buscounters');
-        if( $request->input('search')){
-            $buscounters = $buscounters->where('name', 'LIKE',  $request->search . "%");
-        }
-    	return view('admin.view_buscounters', compact('buscounters'));
-    }
 }

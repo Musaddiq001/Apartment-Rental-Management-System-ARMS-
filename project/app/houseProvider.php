@@ -8,4 +8,5 @@ class houseProvider extends Model
 {
     protected $table = "houseowners";
     public $timestamps = false;
+	protected $primaryKey = "userId";
 }
