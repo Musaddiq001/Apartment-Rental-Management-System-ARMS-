@@ -225,5 +225,61 @@ class adminController extends Controller
 		$users = rented::all();
 		return view('admin.view_rented', ['rentedhouseinfo'=>$users]);
 	}
+	
+	public function searchManager(Request $request)
+	{	
+        $managers = DB::table('managers');
+        if( $request->input('search')){
+            $managers = manager::where('username', 'LIKE', $request->search . "%")
+			->get();
+        }
+        
+    	return view('admin.view_managers', compact('managers'));
+    }
+	
+	public function searchCustomer(Request $request)
+	{	
+        $customers = DB::table('customer');
+        if( $request->input('search')){
+            $customers = customer::where('username', 'LIKE', $request->search . "%")
+			->get();
+        }
+        
+    	return view('admin.view_customers', compact('customers'));
+    }
+	
+	
+	public function searchHouseowner(Request $request)
+	{	
+        $houseowners = DB::table('houseowners');
+        if( $request->input('search')){
+            $houseowners = houseProvider::where('username', 'LIKE', $request->search . "%")
+			->get();
+        }
+        
+    	return view('admin.view_houseowners', compact('houseowners'));
+    }
+	
+	public function searchHouses(Request $request)
+	{	
+        $houseinfos = DB::table('houseinfos');
+        if( $request->input('search')){
+            $houseinfos = houseinfo::where('area', 'LIKE', $request->search . "%")
+			->get();
+        }
+        
+    	return view('admin.view_houses', compact('houseinfos'));
+    }
+	
+	public function searchRented(Request $request)
+	{	
+        $rentedhouseinfo = DB::table('rentedhouseinfo');
+        if( $request->input('search')){
+            $rentedhouseinfo = rented::where('area', 'LIKE', $request->search . "%")
+			->get();
+        }
+        
+    	return view('admin.view_rented', compact('rentedhouseinfo'));
+    }
 
 }

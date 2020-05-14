@@ -70,7 +70,10 @@ Route::group(['middleware'=>['sess']], function(){
 		Route::get('/admin/edit2/{id}', ['as'=>'admin.edit2','uses'=>'AdminController@edit2']);
 		Route::post('/admin/edit2/{id}', 'AdminController@update');
 	//	Route::get('admin.list2/search', 'AdminController@searchBus')->name('search');
-        Route::get('searchCounter', 'AdminController@searchCounter')->name('searchCounter');
-		Route::get('search', 'AdminController@searchBus')->name('search');
+        Route::get('searchCustomer', 'AdminController@searchCustomer')->name('searchCustomer');
+		Route::get('search', 'AdminController@searchManager')->name('search');
+		Route::get('searchHouseowner', 'AdminController@searchHouseowner')->name('searchHouseowner');
+		Route::get('searchHouses', 'AdminController@searchHouses')->name('searchHouses');
+		Route::get('searchRented', 'AdminController@searchRented')->name('searchRented');
 
 });

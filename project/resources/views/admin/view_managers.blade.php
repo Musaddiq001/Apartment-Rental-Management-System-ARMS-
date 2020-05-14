@@ -10,7 +10,10 @@
 	<a href="{{route('logout')}}">Logout</a> 
 <form method="get" action="{{ route('search') }}">
 	@csrf
-		Search Managers By Area : 
+	
+	Search Manager By name: <input type="search" name="search" >
+		<input type="submit" name="submit" value="Search" ><br> <br>
+		Quick Search : 
 
 		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Area" title="Type Operator Name">
 

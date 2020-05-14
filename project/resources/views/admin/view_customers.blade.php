@@ -8,11 +8,14 @@
 	<h1>Customers List!</h1>&nbsp
 	<a href="{{route('admin.index')}}">back</a> |
 	<a href="{{route('logout')}}">Logout</a> 
-<form method="get" action="{{ route('search') }}">
+<form method="get" action="{{ route('searchCustomer') }}">
 	@csrf
-		Search Customers by Username: 
+	
+	Search Customer By name: <input type="search" name="search" >
+		<input type="submit" name="submit" value="Search" ><br> <br>
+		Quick Search : 
 
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Username" title="Type Operator Name">
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Phone number" title="Type Operator Name">
 
 		</form>
 
@@ -56,7 +59,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[4];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

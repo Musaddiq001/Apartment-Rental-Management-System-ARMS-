@@ -9,11 +9,14 @@
 	<a href="{{route('admin.index')}}">back</a> |
 	<a href="{{route('logout')}}">Logout</a>  <br> <br>
 
-	<form method="get" action="{{ route('search') }}">
+	<form method="get" action="{{ route('searchHouses') }}">
 	@csrf
-		Search houses By Area : 
+	Search Apartments by area: <input type="search" name="search" >
+		<input type="submit" name="submit" value="Search" ><br> <br>
+	
+		Quick Search: 
 
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Area" title="Type Operator Name">
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by ID" title="Type Operator Name">
 
 		</form>
 
@@ -63,7 +66,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[5];
+    td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -9,11 +9,15 @@
 	<a href="{{route('admin.index')}}">back</a> |
 	<a href="{{route('logout')}}">Logout</a> | <br><br> 
 
-	<form method="get" action="{{ route('searchCounter') }}">
+	<form method="get" action="{{ route('searchHouseowner') }}">
 	@csrf
-		Search House providers by username : 
+	
+	Search House Providers By name: <input type="search" name="search" >
+		<input type="submit" name="submit" value="Search" ><br> <br>
+		
+		Quick search: 
 
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by username" title="Type Name">
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by NID" title="Type Name">
 
 		</form>
 
@@ -60,7 +64,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[5];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
