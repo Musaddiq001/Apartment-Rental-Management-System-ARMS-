@@ -8,4 +8,5 @@ class houseinfo extends Model
 {
     protected $table = "houseinfos";
     public $timestamps = false;
+	    protected $primaryKey = "houseid";
 }

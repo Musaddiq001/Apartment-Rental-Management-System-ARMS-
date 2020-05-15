@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>night_sky_2 - examples</title>
+  <title>simplestyle_banner - examples</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
@@ -15,7 +15,7 @@
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1><a href="index.html">night<span class="logo_colour">_sky_2</span></a></h1>
+          <h1><a href="index.html">simple<span class="logo_colour">style_banner</span></a></h1>
           <h2>Simple. Contemporary. Website Template.</h2>
         </div>
       </div>
@@ -30,28 +30,49 @@
         </ul>
       </div>
     </div>
+    <div id="content_header"></div>
     <div id="site_content">
-      <div class="sidebar">
-        <h1>Latest News</h1>
-        <h4>New Website Launched</h4>
-        <h5>January 1st, 2010</h5>
-        <p>2010 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-        <h1>Useful Links</h1>
-        <ul>
-          <li><a href="#">link 1</a></li>
-          <li><a href="#">link 2</a></li>
-          <li><a href="#">link 3</a></li>
-          <li><a href="#">link 4</a></li>
-        </ul>
-        <h1>Search</h1>
-        <form method="post" action="#" id="search_form">
-          <p>
-            <input class="search" type="text" name="search_field" value="Enter keywords....." />
-            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
-          </p>
-        </form>
+      <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h3>Latest News</h3>
+            <h4>New Website Launched</h4>
+            <h5>February 1st, 2014</h5>
+            <p>2014 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">link 1</a></li>
+              <li><a href="#">link 2</a></li>
+              <li><a href="#">link 3</a></li>
+              <li><a href="#">link 4</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Search</h3>
+            <form method="post" action="#" id="search_form">
+              <p>
+                <input class="search" type="text" name="search_field" value="Enter keywords....." />
+                <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+              </p>
+            </form>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
       </div>
       <div id="content">
+        <!-- insert the page content here -->
         <h1>Examples</h1>
         <p>This page contains examples of all the styled elements available as part of this design. Use this page for reference, whilst you build your website.</p>
         <h2>Headings</h2>
@@ -121,9 +142,10 @@
         </form>
       </div>
     </div>
+    <div id="content_footer"></div>
     <div id="footer">
       <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
-      <p>Copyright &copy; night_sky_2 | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Website templates</a></p>
+      <p>Copyright &copy; simplestyle_banner | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
     </div>
   </div>
 </body>

@@ -43,8 +43,8 @@ class adminController extends Controller
 			'fname'=>'bail|required|min:5|unique:managers',
 			'lname'=>'required',
 			'uname'=>'required',
-			'password'=>'required',
-			'email'=>'required',
+			'password'=>'required|min:4',
+			'email'=>'required|email',
 			'phone'=>'required',
 			'type'=>'required',
 			'address'=>'required',
@@ -113,7 +113,7 @@ class adminController extends Controller
 		
 		$validation = Validator::make($request->all(), [
             'fname'=>'required',
-            'lname'=>'required',
+            'lname'=>'require',
             'phone'=>'required|size:11',
             'nid'=>'required|size:5',
             'address'=>'required',
@@ -163,6 +163,11 @@ class adminController extends Controller
 	public function delete($id){
 		$user = manager::find($id);
 		return view('admin.delete', $user);
+	}
+	
+	public function details($id){
+		$user = houseinfo::find($id);
+		return view('admin.details', $user);
 	}
 
     public function delete1($id){

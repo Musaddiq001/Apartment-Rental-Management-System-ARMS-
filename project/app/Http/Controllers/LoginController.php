@@ -17,14 +17,7 @@ class LoginController extends Controller
 
     public function verify(Request $req){
     	
- /*       $req->uname 
-        $req->password*/
 
-        //$data = User::all();
-
-/*        $user = User::where('username', $req->uname)
-                    ->where('password', $req->password)
-                    ->first();*/
 
         $user = DB::table('admininfo')
                     ->where('username', $req->uname)
@@ -45,7 +38,6 @@ class LoginController extends Controller
     	}
 		else{
             $req->session()->flash('msg', 'invalid username/password');
-    		//return view('login.index');
             return redirect('/login'); 
     	}
     }
